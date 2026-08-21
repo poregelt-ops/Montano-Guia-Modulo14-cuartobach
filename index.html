@@ -1,1 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Estudio · Los impuestos y los gastos del gobierno · Colegio Montano</title>
+<style>
+:root{
+  --navy:#1269A8;
+  --navy-dark:#0d4d80;
+  --navy-deep:#0a3a61;
+  --gold:#F7D615;
+  --gold-soft:#fce98a;
+  --gold-pale:#fdf6d6;
+  --teal:#54887D;
+  --teal-pale:#e3ece9;
+  --sky:#88B5C7;
+  --sky-pale:#e7f0f3;
+  --olive:#A6B046;
+  --olive-pale:#eef1dc;
+  --paper:#F2F5E9;
+  --paper-2:#e6ebda;
+  --white:#FFFFFF;
+  --ink:#1c2b22;
+  --ink-soft:#54604f;
+  --line:#cdd6bd;
+  --font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; font-family:var(--font); background:var(--paper); color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
 
+/* ============ HEADER ============ */
+#hero{
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 55%, var(--navy-deep) 100%);
+  color:var(--white); padding:26px 5vw 34px; position:relative; overflow:hidden;
+}
+#hero::before{
+  content:''; position:absolute; top:-60px; right:-60px; width:280px; height:280px; border-radius:50%;
+  background:radial-gradient(circle, rgba(247,214,21,.22), transparent 70%);
+}
+#hero::after{
+  content:''; position:absolute; bottom:-100px; left:10%; width:340px; height:340px; border-radius:50%;
+  background:radial-gradient(circle, rgba(136,181,199,.18), transparent 70%);
+}
+.hero-top{ display:flex; align-items:center; gap:18px; position:relative; z-index:2; flex-wrap:wrap;}
+.hero-top img{ height:64px; width:auto; filter:drop-shadow(0 6px 14px rgba(0,0,0,.35)); border-radius:8px; background:rgba(255,255,255,.9); padding:4px;}
+.hero-inst{ font-weight:800; letter-spacing:.14em; font-size:.82rem; color:var(--gold);}
+.hero-kicker{ font-weight:700; letter-spacing:.1em; font-size:.78rem; text-transform:uppercase; color:var(--sky); margin-top:4px;}
+h1.hero-title{
+  font-size:clamp(1.6rem,4vw,2.5rem); font-weight:800; margin:14px 0 6px; position:relative; z-index:2; max-width:20ch;
+}
+.hero-sub{ font-size:1rem; color:var(--gold-soft); font-weight:700; position:relative; z-index:2;}
+.hero-meta{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; position:relative; z-index:2;}
+.meta-chip{
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.28); border-radius:100px;
+  padding:6px 14px; font-size:.78rem; font-weight:600;
+}
+
+/* ============ TABS NAV ============ */
+#tabbar-wrap{
+  position:sticky; top:0; z-index:50; background:var(--white); border-bottom:3px solid var(--gold);
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+#tabbar{
+  display:flex; overflow-x:auto; scrollbar-width:thin;
+  max-width:1180px; margin:0 auto;
+}
+#tabbar::-webkit-scrollbar{ height:5px; }
+#tabbar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px;}
+.tab-btn{
+  flex:0 0 auto; padding:14px 20px; border:none; background:none; cursor:pointer;
+  font-family:var(--font); font-weight:700; font-size:.86rem; color:var(--ink-soft);
+  border-bottom:4px solid transparent; white-space:nowrap; transition:all .15s ease;
+  display:flex; align-items:center; gap:8px;
+}
+.tab-btn .tnum{
+  width:22px; height:22px; border-radius:50%; background:var(--paper-2); color:var(--navy);
+  font-size:.72rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.tab-btn:hover{ color:var(--navy); background:var(--paper); }
+.tab-btn.active{ color:var(--navy); border-bottom-color:var(--gold); }
+.tab-btn.active .tnum{ background:var(--navy); color:var(--white); }
+
+/* ============ CONTENT ============ */
+#content{ max-width:1180px; margin:0 auto; padding:34px 5vw 70px; }
+.tab-panel{ display:none; animation:fadein .25s ease; }
+.tab-panel.active{ display:block; }
+@keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+.kicker{
+  font-weight:700; font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:var(--teal);
+  margin-bottom:8px; display:block;
+}
+h2.section-title{
+  font-weight:800; font-size:clamp(1.35rem,2.6vw,1.9rem); color:var(--navy); margin:0 0 18px;
+  padding-bottom:10px; border-bottom:3px solid var(--gold);
+}
+h3.sub-title{ font-weight:700; font-size:1.15rem; color:var(--navy-dark); margin:26px 0 10px; }
+p{ line-height:1.7; margin:0 0 14px; font-size:1rem; }
+.lede{ font-size:1.08rem; color:var(--ink-soft); }
+strong{ color:var(--navy-dark); }
+
+/* ============ boxes ============ */
+.box{ border-radius:12px; padding:18px 22px; margin:20px 0; border:1.5px solid var(--line); }
+.box-label{
+  font-weight:700; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase;
+  display:flex; align-items:center; gap:8px; margin-bottom:8px;
+}
+.box.concept{ background:var(--teal-pale); border-color:#bcd6cf; } .box.concept .box-label{ color:var(--teal); }
+.box.example{ background:var(--sky-pale); border-color:#c3dbe4; } .box.example .box-label{ color:#2b6a84; }
+.box.remember{ background:var(--gold-pale); border-color:var(--gold-soft); } .box.remember .box-label{ color:#8a6a00; }
+.box.curious{ background:var(--olive-pale); border-color:#d8dfb0; } .box.curious .box-label{ color:#6c7a2c; }
+.box.check{ background:var(--paper-2); border-color:var(--line); border-style:dashed; } .box.check .box-label{ color:var(--navy-dark); }
+.box.practice{ background:var(--navy); color:var(--white); border-color:var(--navy); } .box.practice .box-label{ color:var(--gold);} .box.practice p{ color:var(--white); }
+.box.note{ background:#fff; border-color:var(--sky); border-left:5px solid var(--sky); } .box.note .box-label{ color:#2b6a84; }
+.box.critical{ background:var(--white); border:1.5px dashed var(--olive); } .box.critical .box-label{ color:#6c7a2c; }
+
+/* ============ vocab ============ */
+.vocab-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px 18px; margin:16px 0; }
+.vocab-item{ background:var(--white); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+.vocab-term{ font-weight:800; color:var(--navy); font-size:.98rem; }
+.vocab-def{ font-size:.87rem; color:var(--ink-soft); margin-top:3px; line-height:1.5; }
+
+/* ============ tables ============ */
+table.compare{ width:100%; border-collapse:collapse; margin:16px 0 20px; font-size:.92rem; }
+table.compare th{ background:var(--navy); color:var(--white); padding:10px 14px; text-align:left; font-weight:700; }
+table.compare td{ padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.5; }
+table.compare tr:nth-child(even) td{ background:rgba(0,0,0,.02); }
+table.data{ width:100%; border-collapse:collapse; margin:14px 0 18px; font-size:.88rem; }
+table.data th{ background:var(--navy-dark); color:var(--white); padding:9px 10px; font-weight:700; text-align:center; }
+table.data td{ padding:9px 10px; border:1px solid var(--line); text-align:center; }
+table.data td.fillme{ background:var(--gold-pale); font-weight:700; color:#8a6a00; }
+table.data tr:last-child td{ font-weight:800; background:var(--paper-2); }
+
+/* ============ exercises ============ */
+.exercise{ margin:16px 0 22px; }
+ol.qlist{ padding-left:22px; margin:10px 0; }
+ol.qlist li{ margin-bottom:16px; line-height:1.6; }
+.mc-opts{ display:flex; flex-direction:column; gap:6px; margin:8px 0 4px 0; font-size:.95rem; }
+.mc-opts span{ padding:2px 0; }
+
+/* ============ reveal (pestañas ocultas) ============ */
+details.reveal{
+  margin-top:10px; border:1.5px solid var(--line); border-radius:10px; overflow:hidden; background:var(--white);
+}
+details.reveal summary{
+  cursor:pointer; list-style:none; padding:10px 16px; font-weight:700; font-size:.86rem;
+  color:var(--navy); background:var(--paper-2); display:flex; align-items:center; gap:8px;
+  user-select:none;
+}
+details.reveal summary::-webkit-details-marker{ display:none; }
+details.reveal summary::before{ content:"▸"; color:var(--gold); font-size:1rem; transition:transform .2s ease; }
+details.reveal[open] summary::before{ transform:rotate(90deg); }
+details.reveal[open] summary{ background:var(--navy); color:var(--white); }
+details.reveal[open] summary::before{ color:var(--gold); }
+.reveal-body{ padding:14px 18px; font-size:.94rem; line-height:1.65; background:#fff; border-top:1px solid var(--line); }
+.reveal-body .correct{ color:var(--teal); font-weight:800; }
+
+/* ============ chips ============ */
+.chipset{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0; }
+.chip{ background:var(--navy); color:var(--gold-soft); font-size:.76rem; font-weight:700; padding:6px 12px; border-radius:100px; }
+
+/* ============ case cards ============ */
+.case-card{ background:var(--white); border:1.5px solid var(--line); border-radius:14px; padding:20px 24px; margin:18px 0; }
+.case-tag{
+  display:inline-block; background:var(--olive); color:var(--white); font-weight:700; font-size:.72rem;
+  padding:4px 12px; border-radius:100px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px;
+}
+
+/* ============ objectives ============ */
+.obj-list{ list-style:none; padding:0; margin:16px 0; }
+.obj-list li{ display:flex; gap:12px; align-items:flex-start; margin-bottom:12px; line-height:1.55; }
+.obj-list li::before{ content:"✓"; flex-shrink:0; width:24px; height:24px; border-radius:50%; background:var(--gold);
+  color:var(--navy-deep); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:.8rem; margin-top:1px;}
+
+/* ============ nav footer buttons ============ */
+.tab-nav-footer{ display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid var(--line); }
+.nav-btn{
+  background:var(--navy); color:var(--white); border:none; padding:12px 22px; border-radius:100px;
+  font-family:var(--font); font-weight:700; font-size:.88rem; cursor:pointer; display:flex; align-items:center; gap:8px;
+}
+.nav-btn:hover{ background:var(--navy-dark); }
+.nav-btn.ghost{ background:transparent; color:var(--navy); border:1.5px solid var(--navy); }
+.nav-btn.ghost:hover{ background:var(--paper-2); }
+
+/* ============ illustrations ============ */
+.illo{ display:flex; justify-content:center; margin:18px 0; }
+
+@media (max-width:720px){
+  .vocab-grid{ grid-template-columns:1fr; }
+  .hero-top img{ height:52px; }
+}
+</style>
+</head>
+<body>
+
+<header id="hero">
+  <div class="hero-top">
+    <img src="data:image/png;base64,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" alt="Escudo Colegio Montano">
+    <div>
+      <div class="hero-inst">COLEGIO MONTANO</div>
+      <div class="hero-kicker">Guía de estudio · Ciencias Sociales · Cuarto Bachillerato · Unidad 4</div>
+    </div>
+  </div>
+  <h1 class="hero-title">Los impuestos y los gastos del gobierno</h1>
+  <div class="hero-sub">Entendiendo para qué existen los impuestos y cómo se financia el Estado</div>
+  <div class="hero-meta">
+    <span class="meta-chip">📚 Ciencias Sociales</span>
+    <span class="meta-chip">🎓 Cuarto Bachillerato</span>
+    <span class="meta-chip">🗂️ Unidad 4</span>
+    <span class="meta-chip">✅ Con evaluación formativa</span>
+  </div>
+</header>
+
+<nav id="tabbar-wrap">
+  <div id="tabbar">
+    <button class="tab-btn active" data-tab="t0"><span class="tnum">1</span> Inicio</button>
+    <button class="tab-btn" data-tab="t1"><span class="tnum">2</span> El gobierno y los impuestos</button>
+    <button class="tab-btn" data-tab="t2"><span class="tnum">3</span> Funciones del gobierno</button>
+    <button class="tab-btn" data-tab="t3"><span class="tnum">4</span> Tipos de impuestos</button>
+    <button class="tab-btn" data-tab="t4"><span class="tnum">5</span> Recaudación y debate</button>
+    <button class="tab-btn" data-tab="t5"><span class="tnum">6</span> Evaluación formativa</button>
+  </div>
+</nav>
+
+
+<div id="content">
+<section id="t0" class="tab-panel active">
+  <span class="kicker">Bienvenida</span>
+  <h2 class="section-title">¿Qué aprenderás en esta guía?</h2>
+  <p class="lede">Todos escuchamos hablar de "impuestos", del IVA, del ISR o de la SAT. Pero pocas veces nos detenemos a pensar con calma para qué sirve realmente el dinero que el gobierno recauda, ni por qué existen distintos tipos de impuestos. Esta guía te va a ayudar a entender ese tema con una mirada clara, crítica y aplicable a la vida real.</p>
+
+  <ul class="obj-list">
+    <li>Explicar qué es el gobierno, qué es el Estado, y por qué las personas pagan impuestos.</li>
+    <li>Distinguir entre las funciones propias del gobierno y las que no lo son.</li>
+    <li>Clasificar los impuestos según su forma de cobro (directos/indirectos) y según su incidencia.</li>
+    <li>Analizar de forma crítica los efectos económicos de distintos tipos de impuestos.</li>
+    <li>Formar una postura propia, argumentada y respetuosa, sobre el papel del gobierno y los impuestos.</li>
+  </ul>
+
+  <h3 class="sub-title">Antes de comenzar</h3>
+  <p>Responde estas preguntas con lo que ya sabes o intuyes. No hay respuestas incorrectas: nos sirven para activar lo que ya conoces sobre el tema.</p>
+  <div class="box check">
+    <div class="box-label">🧠 Reflexiona</div>
+    <ol class="qlist" style="margin-bottom:0;">
+      <li>¿Por qué crees que las personas y las empresas están obligadas a pagar impuestos?</li>
+      <li>Menciona dos servicios o instituciones que, en tu opinión, el gobierno debería financiar con los impuestos.</li>
+      <li>¿Has escuchado hablar del IVA o del ISR? ¿Qué diferencia crees que hay entre ambos?</li>
+      <li>¿Consideras que todas las personas deberían pagar el mismo porcentaje de impuestos, sin importar cuánto ganan? ¿Por qué?</li>
+    </ol>
+  </div>
+
+  <h3 class="sub-title">Vocabulario clave</h3>
+  <p>Estos términos aparecerán a lo largo de la guía. Revísalos ahora; los usarás en los ejercicios de cada tema.</p>
+  <div class="vocab-grid">
+    <div class="vocab-item"><div class="vocab-term">Estado</div><div class="vocab-def">Entidad política que se constituye en torno a un territorio y una población, con instituciones que la organizan.</div></div>
+    <div class="vocab-item"><div class="vocab-term">Gobierno</div><div class="vocab-def">Conjunto de organismos que ejercen el poder político y la conducción del Estado en un momento dado.</div></div>
+    <div class="vocab-item"><div class="vocab-term">Tributo / impuesto</div><div class="vocab-def">Pago obligatorio que los ciudadanos hacen al Estado para financiar los servicios que este presta.</div></div>
+    <div class="vocab-item"><div class="vocab-term">Fisco</div><div class="vocab-def">Nombre que recibe la administración encargada de recaudar los impuestos (en Guatemala, la SAT).</div></div>
+    <div class="vocab-item"><div class="vocab-term">Incidencia de un impuesto</div><div class="vocab-def">Se refiere a quién termina pagando realmente el costo de un impuesto, de forma directa o indirecta.</div></div>
+    <div class="vocab-item"><div class="vocab-term">Capitalización</div><div class="vocab-def">Cantidad de dinero que una persona, empresa o país tiene disponible como ahorro o inversión.</div></div>
+    <div class="vocab-item"><div class="vocab-term">Función subsidiaria</div><div class="vocab-def">Función secundaria que el gobierno asume solo cuando sea necesario, sin que sea su responsabilidad principal.</div></div>
+    <div class="vocab-item"><div class="vocab-term">Bien público</div><div class="vocab-def">Bien o servicio del que se benefician todos los ciudadanos, y que resulta difícil de proveer de forma privada.</div></div>
+  </div>
+
+  <div class="tab-nav-footer">
+    <span></span>
+    <button class="nav-btn" onclick="goTab('t1')">Comenzar Tema 1 →</button>
+  </div>
+</section>
+
+<section id="t1" class="tab-panel">
+  <span class="kicker">Tema 1</span>
+  <h2 class="section-title">El gobierno y los impuestos</h2>
+
+  <h3 class="sub-title">A. Explicación</h3>
+  <p>Para entender los impuestos, primero hay que entender qué es el <strong>Estado</strong> y qué es el <strong>gobierno</strong>. El Estado es la entidad política que se organiza alrededor de un territorio y una población. El gobierno, en cambio, es el conjunto de instituciones y personas que, en un momento dado, ejercen el poder político y conducen ese Estado.</p>
+  <p>El gobierno cumple un rol central en cualquier sociedad: proteger los derechos de las personas, es decir, su <strong>vida</strong>, su <strong>libertad</strong> y su <strong>propiedad</strong>. Proteger la vida y la libertad significa cuidar la integridad y la seguridad de las personas. Proteger la propiedad significa resguardar los bienes que alguien obtuvo legítimamente, y los contratos que las personas firman de forma voluntaria.</p>
+  <p>Para cumplir ese rol, el gobierno necesita pagar a policías, jueces, militares y funcionarios; necesita instalaciones, equipo e insumos. Todo eso cuesta dinero. Por eso los ciudadanos pagan <strong>impuestos</strong> (también llamados <strong>tributos</strong>): son el pago que hacemos al Estado por los servicios de defensa, justicia y seguridad que este nos brinda.</p>
+
+  <div class="box example">
+    <div class="box-label">🏘️ Ejemplo de la vida real</div>
+    <p style="margin:0;">Piensa en un condominio o una colonia cerrada. Los vecinos pagan una cuota mensual para financiar un guardia de seguridad, el mantenimiento de las áreas comunes y el alumbrado de las calles internas. Nadie paga esa cuota por gusto: la paga porque recibe algo a cambio — seguridad y orden — que sería muy difícil de conseguir por su cuenta. Los impuestos funcionan de forma parecida, pero a la escala de todo un país: pagamos porque recibimos, a cambio, protección y servicios que el Estado organiza para toda la población.</p>
+  </div>
+
+  <div class="box remember">
+    <div class="box-label">⭐ Para recordar</div>
+    <p style="margin:0;">Los impuestos no existen "porque sí": existen porque el gobierno necesita financiar la protección de la vida, la libertad y la propiedad de los ciudadanos. Esa es su razón de ser original.</p>
+  </div>
+
+  <div class="box curious">
+    <div class="box-label">💡 ¿Sabías que...?</div>
+    <p style="margin:0;">Los sistemas de tributación son mucho más antiguos de lo que parece: en el Antiguo Egipto y en Mesopotamia ya existían registros de cobros en forma de granos o trabajo obligatorio, destinados a financiar ejércitos, templos y obras públicas, miles de años antes de que existiera el dinero como lo conocemos hoy.</p>
+  </div>
+
+  <div class="box check">
+    <div class="box-label">✅ Comprueba lo aprendido</div>
+    <ol class="qlist" style="margin-bottom:0;">
+      <li>Explica con tus palabras la diferencia entre Estado y gobierno.</li>
+      <li>Según esta guía, ¿cuáles son los tres derechos principales que el gobierno debe proteger?</li>
+      <li>¿Por qué se dice que los impuestos "no pueden considerarse independientemente del gobierno"?</li>
+    </ol>
+  </div>
+
+  <h3 class="sub-title">B. Ejercicio práctico</h3>
+  <div class="exercise">
+    <p>Completa cada enunciado con el término correcto: <em>Estado, gobierno, impuestos, propiedad</em>.</p>
+    <ol class="qlist">
+      <li>El _______________ es el conjunto de organismos que ejercen el poder político en un momento determinado.</li>
+      <li>El _______________ es la entidad política organizada en torno a un territorio y una población.</li>
+      <li>Proteger la _______________ significa amparar los bienes legítimos de las personas y los contratos que hacen voluntariamente.</li>
+      <li>Los ciudadanos pagan _______________ para financiar los servicios de defensa, justicia y seguridad.</li>
+    </ol>
+    <details class="reveal">
+      <summary>Verificar respuestas</summary>
+      <div class="reveal-body">
+        1. gobierno &nbsp;·&nbsp; 2. Estado &nbsp;·&nbsp; 3. propiedad &nbsp;·&nbsp; 4. impuestos
+      </div>
+    </details>
+  </div>
+
+  <div class="box critical">
+    <div class="box-label">🤔 Pregunta de reflexión crítica</div>
+    <p style="margin:0;">¿Es razonable comparar el pago de impuestos con el pago que le haces a un médico o a un guardia de seguridad privado? Argumenta al menos una similitud y una diferencia importante entre ambas situaciones.</p>
+  </div>
+
+  <div class="tab-nav-footer">
+    <button class="nav-btn ghost" onclick="goTab('t0')">← Inicio</button>
+    <button class="nav-btn" onclick="goTab('t2')">Tema 2 →</button>
+  </div>
+</section>
+
+<section id="t2" class="tab-panel">
+  <span class="kicker">Tema 2</span>
+  <h2 class="section-title">Funciones propias del gobierno y prioridades de gasto</h2>
+
+  <h3 class="sub-title">A. Explicación</h3>
+  <p>Así como una familia debe organizar su presupuesto — pagando primero lo esencial (comida, alquiler, servicios) antes de gastar en lo que no es indispensable (ropa nueva, vacaciones) — el gasto del gobierno también debería seguir un orden de prioridades.</p>
+  <p>Pero, ¿cómo distinguir qué es realmente prioritario para un gobierno? Un criterio bastante usado en la teoría política y económica es este: <strong>las funciones propias y legítimas del gobierno son aquellas que no pueden ser ejercidas, de forma legítima, por un individuo particular</strong>. Por ejemplo, ningún individuo o grupo privado puede impartir justicia de forma legítima (si lo hace, se trata de un linchamiento, no de justicia) ni puede mantener un ejército para defender a todo un país.</p>
+  <p>Bajo ese criterio, la <strong>defensa nacional</strong>, la <strong>administración de justicia</strong>, la <strong>seguridad ciudadana</strong> y la provisión de ciertos <strong>bienes públicos</strong> (como carreteras, puertos o aeropuertos) suelen considerarse funciones propias del gobierno.</p>
+  <p>En cambio, existen funciones que un individuo o una empresa privada sí pueden ejercer: construir y administrar escuelas, hospitales, dar servicio de telefonía o de energía eléctrica. Cuando el gobierno decide asumir estas funciones, se dice que lo hace de manera <strong>subsidiaria</strong> — es decir, secundaria — normalmente para atender a la parte de la población que no puede pagar por esos servicios de forma privada.</p>
+
+  <div class="box note">
+    <div class="box-label">📌 Nota académica</div>
+    <p style="margin:0;">El criterio que acabas de leer (funciones propias = las que no puede ejercer un individuo privado) corresponde a una corriente de pensamiento económico conocida como <strong>liberalismo clásico</strong>, que defiende un Estado con funciones limitadas. No es la única postura que existe: otras corrientes, como las que defienden el <strong>Estado de bienestar</strong>, sostienen que el gobierno también debería garantizar directamente servicios como la salud y la educación para toda la población, no solo de forma subsidiaria. Conocer ambas posturas te permitirá formar un criterio propio, informado y argumentado.</p>
+  </div>
+
+  <div class="box example">
+    <div class="box-label">🏛️ Ejemplo</div>
+    <p style="margin:0;">Imagina que la municipalidad de un pueblo pequeño tiene un presupuesto limitado y debe decidir entre tres proyectos: (1) construir una nueva sede para el juzgado local, (2) patrocinar un torneo de fútbol organizado por una empresa privada, o (3) ampliar el alumbrado público de las calles principales. Según el criterio visto arriba, los proyectos 1 y 3 corresponden a funciones propias del gobierno (justicia y bien público), mientras que el proyecto 2 no lo es, porque una empresa privada podría organizar y financiar ese torneo por su cuenta.</p>
+  </div>
+
+  <div class="box remember">
+    <div class="box-label">⭐ Para recordar</div>
+    <p style="margin:0;">Antes de preguntar si el gobierno "debería" gastar en algo, primero hay que preguntar si esa función solo puede ser ejercida legítimamente por el Estado, o si también podría ser ejercida por particulares.</p>
+  </div>
+
+  <div class="box check">
+    <div class="box-label">✅ Comprueba lo aprendido</div>
+    <ol class="qlist" style="margin-bottom:0;">
+      <li>¿Cuál es el criterio propuesto en esta guía para distinguir una función propia de una que no lo es?</li>
+      <li>Menciona dos funciones propias del gobierno y dos funciones que un individuo o empresa privada también podría ejercer.</li>
+      <li>¿Qué significa que el gobierno ejerza una función de manera "subsidiaria"?</li>
+    </ol>
+  </div>
+
+  <h3 class="sub-title">B. Ejercicio práctico</h3>
+  <div class="exercise">
+    <p>Clasifica cada una de las siguientes actividades como <strong>función propia</strong> (FP) o <strong>función no propia / subsidiaria</strong> (NP) del gobierno, según el criterio estudiado.</p>
+    <ol class="qlist">
+      <li>Mantener un ejército para la defensa del país. ____</li>
+      <li>Administrar una cadena de hoteles turísticos. ____</li>
+      <li>Impartir justicia a través de los tribunales. ____</li>
+      <li>Construir y operar hospitales públicos para quienes no pueden pagar salud privada. ____</li>
+      <li>Vender telefonía celular a la población. ____</li>
+      <li>Mantener la seguridad ciudadana a través de la policía. ____</li>
+      <li>Construir carreteras y puertos de uso público. ____</li>
+    </ol>
+    <details class="reveal">
+      <summary>Verificar respuestas</summary>
+      <div class="reveal-body">
+        1. FP &nbsp;·&nbsp; 2. NP &nbsp;·&nbsp; 3. FP &nbsp;·&nbsp; 4. NP (subsidiaria) &nbsp;·&nbsp; 5. NP &nbsp;·&nbsp; 6. FP &nbsp;·&nbsp; 7. FP
+        <br><br>
+        <span class="correct">Nota:</span> el punto 4 se considera "no propia" en sentido estricto, pero el gobierno puede ejercerla de forma <em>subsidiaria</em> cuando atienda a población que no puede pagar servicios privados — es un caso intermedio, útil para discutir en clase.
+      </div>
+    </details>
+  </div>
+
+  <div class="box critical">
+    <div class="box-label">🤔 Pregunta de reflexión crítica</div>
+    <p style="margin:0;">¿Debería el gobierno de Guatemala construir y administrar directamente hospitales y escuelas, o dejar esa función completamente a la iniciativa privada? Argumenta tu postura considerando al menos dos puntos de vista distintos (por ejemplo, el del liberalismo clásico y el del Estado de bienestar, vistos en la nota académica).</p>
+  </div>
+
+  <div class="tab-nav-footer">
+    <button class="nav-btn ghost" onclick="goTab('t1')">← Tema 1</button>
+    <button class="nav-btn" onclick="goTab('t3')">Tema 3 →</button>
+  </div>
+</section>
+
+<section id="t3" class="tab-panel">
+  <span class="kicker">Tema 3</span>
+  <h2 class="section-title">Tipos de impuestos y su incidencia</h2>
+
+  <h3 class="sub-title">A. Explicación</h3>
+  <p>No todos los impuestos se cobran de la misma manera. Existen varias formas de clasificarlos, y conocerlas te permite entender mejor las noticias económicas y las decisiones de política fiscal.</p>
+
+  <table class="compare">
+    <tr><th>Directos</th><th>Indirectos</th></tr>
+    <tr>
+      <td>Gravan (se cobran sobre) el <strong>ingreso o la renta</strong> de cada persona. Ejemplo: el Impuesto Sobre la Renta (ISR).</td>
+      <td>No gravan el ingreso, sino una <strong>actividad</strong> (como el consumo) o un <strong>producto</strong> (como la gasolina). Ejemplo: el Impuesto al Valor Agregado (IVA).</td>
+    </tr>
+  </table>
+
+  <table class="compare">
+    <tr><th>Proporcionales</th><th>Progresivos</th></tr>
+    <tr>
+      <td>Se cobran con una <strong>tasa igual para todos</strong>, sin importar cuánto gane o gaste la persona. En Guatemala, el IVA es del 12% para todos.</td>
+      <td>Se cobran con una <strong>tasa que aumenta</strong> a medida que el ingreso de la persona es mayor. El ISR en Guatemala funciona de esta manera.</td>
+    </tr>
+  </table>
+
+  <p>Otro concepto clave es la <strong>incidencia</strong> de un impuesto: se refiere a quién termina pagándolo realmente. Hay incidencia <strong>inmediata</strong>, cuando quien compra algo paga el impuesto en el momento de la compra (como en el IVA); y hay incidencia <strong>mediata</strong>, cuando el efecto del impuesto se traslada de forma indirecta — por ejemplo, hacia el ahorro de las personas, aunque el impuesto formalmente grave otra cosa.</p>
+
+  <div class="box remember">
+    <div class="box-label">⭐ Para recordar</div>
+    <p style="margin:0;">Directo/indirecto responde a la pregunta "¿qué se grava?" (ingreso o consumo). Proporcional/progresivo responde a "¿cómo cambia la tasa?" (igual para todos o creciente). Incidencia responde a "¿quién paga realmente?".</p>
+  </div>
+
+  <h3 class="sub-title">B. Ejercicio práctico: comparando impuestos</h3>
+  <p>Completa las celdas resaltadas en amarillo del siguiente cuadro. Cuatro hogares distintos tienen el ingreso y el gasto mensual que se indica. Calcula cuánto pagaría cada uno si el gobierno cobrara un <strong>impuesto proporcional del 10% sobre el gasto</strong> (como el IVA), y cuánto le quedaría de ahorro (ingreso menos gasto, recordando que el impuesto ya va incluido dentro de ese gasto).</p>
+
+  <table class="data">
+    <tr><th>Hogar</th><th>Ingreso mensual (Q)</th><th>Gasto mensual (Q)</th><th>Impuesto 10% al gasto (Q)</th><th>Ahorro resultante (Q)</th></tr>
+    <tr><td>A</td><td>1,500</td><td>1,500</td><td class="fillme">?</td><td class="fillme">?</td></tr>
+    <tr><td>B</td><td>7,000</td><td>4,000</td><td class="fillme">?</td><td class="fillme">?</td></tr>
+    <tr><td>C</td><td>45,000</td><td>20,000</td><td class="fillme">?</td><td class="fillme">?</td></tr>
+    <tr><td>D</td><td>250,000</td><td>60,000</td><td class="fillme">?</td><td class="fillme">?</td></tr>
+    <tr><td>Total</td><td>303,500</td><td>85,500</td><td class="fillme">?</td><td class="fillme">?</td></tr>
+  </table>
+
+  <details class="reveal">
+    <summary>Verificar respuestas del cuadro</summary>
+    <div class="reveal-body">
+      <p style="margin-top:0; font-size:.86rem; color:var(--ink-soft);"><em>Pista: el gasto mensual ya incluye el impuesto pagado (igual que cuando pagas el IVA incluido en el precio). Por eso, el ahorro se calcula como Ingreso − Gasto; el impuesto solo se muestra por separado para ver cuánto de ese gasto fue a parar al fisco.</em></p>
+      <table class="data" style="margin:0;">
+        <tr><th>Hogar</th><th>Impuesto 10% al gasto (Q)</th><th>Ahorro resultante (Q)</th></tr>
+        <tr><td>A</td><td>150</td><td>0</td></tr>
+        <tr><td>B</td><td>400</td><td>3,000</td></tr>
+        <tr><td>C</td><td>2,000</td><td>25,000</td></tr>
+        <tr><td>D</td><td>6,000</td><td>190,000</td></tr>
+        <tr><td>Total</td><td>8,550</td><td>218,000</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <div class="exercise">
+    <p style="margin-top:18px;">Ahora responde con base en tus resultados:</p>
+    <ol class="qlist">
+      <li>¿Qué porcentaje de su ingreso destina el Hogar A al pago de este impuesto? ¿Y el Hogar D?</li>
+      <li>Si el mismo 10% se cobrara sobre el <strong>ingreso</strong> (impuesto directo) en lugar del gasto, ¿el Hogar A pagaría más, menos o lo mismo? Justifica.</li>
+      <li>¿Este impuesto es directo o indirecto? ¿Es proporcional o progresivo? Explica por qué.</li>
+    </ol>
+    <details class="reveal">
+      <summary>Verificar respuestas</summary>
+      <div class="reveal-body">
+        1. El Hogar A destina el 10% de su ingreso (150/1,500); el Hogar D destina solo el 2.4% de su ingreso (6,000/250,000), porque gasta una proporción mucho menor de lo que gana.<br><br>
+        2. Pagaría <strong>lo mismo</strong> (Q150), porque el Hogar A gasta exactamente el 100% de lo que gana. Pero en los hogares que sí ahorran (B, C y D), un impuesto del 10% sobre el <strong>ingreso</strong> sería mayor que el impuesto del 10% sobre el <strong>gasto</strong> — por ejemplo, el Hogar B pagaría Q700 sobre su ingreso, en vez de Q400 sobre su gasto — porque el ingreso total es mayor que lo que efectivamente gasta.<br><br>
+        3. Es un impuesto <strong>indirecto</strong> (grava el gasto/consumo, no el ingreso) y <strong>proporcional</strong> (la tasa del 10% es igual para los cuatro hogares).
+      </div>
+    </details>
+  </div>
+
+  <div class="box curious">
+    <div class="box-label">💡 ¿Sabías que...?</div>
+    <p style="margin:0;">En Guatemala, el IVA (Impuesto al Valor Agregado) es del 12% y es uno de los impuestos que más ingresos genera para el Estado, precisamente porque es proporcional, se cobra sobre casi todos los productos y servicios, y es difícil de evadir en comparación con impuestos que gravan directamente el ingreso.</p>
+  </div>
+
+  <div class="box critical">
+    <div class="box-label">🤔 Pregunta de reflexión crítica</div>
+    <p style="margin:0;">El impuesto progresivo busca que quien gana más pague una proporción mayor de su ingreso. Algunas personas consideran esto justo, porque quien tiene más "puede permitírselo"; otras consideran que es injusto, porque castiga a quienes han trabajado o producido más. ¿Con cuál postura te identificas más, y por qué? Argumenta considerando ambos puntos de vista.</p>
+  </div>
+
+  <div class="tab-nav-footer">
+    <button class="nav-btn ghost" onclick="goTab('t2')">← Tema 2</button>
+    <button class="nav-btn" onclick="goTab('t4')">Tema 4 →</button>
+  </div>
+</section>
+
+<section id="t4" class="tab-panel">
+  <span class="kicker">Tema 4</span>
+  <h2 class="section-title">Recaudación, evasión y el debate sobre la redistribución</h2>
+
+  <h3 class="sub-title">A. Explicación</h3>
+  <p>Cobrar un impuesto no es gratis para el Estado: recaudarlo también cuesta dinero. El <strong>costo de recaudación</strong> es lo que el gobierno gasta para poder cobrar una unidad de un impuesto determinado — pagar la oficina recaudadora (en Guatemala, la SAT), a los funcionarios, los sistemas de control, etc. Si para cobrar Q1.00 de un impuesto hay que gastar Q0.60, ese impuesto tiene un costo de recaudación muy alto.</p>
+  <p>En general, los <strong>impuestos indirectos y proporcionales</strong> (como el IVA) son más fáciles y baratos de recaudar, porque basta con verificar que los negocios emitan factura. Los <strong>impuestos directos y progresivos</strong> (como el ISR) suelen tener mayores costos de recaudación y también mayores tasas de <strong>evasión</strong>, porque dependen de que cada persona o empresa declare correctamente su ingreso.</p>
+
+  <h3 class="sub-title">El debate sobre la redistribución de la riqueza</h3>
+  <p>Un argumento muy común es que el gobierno debería cobrar impuestos más altos a quienes tienen mayores ingresos, para luego redistribuir ese dinero — a través de servicios públicos o programas sociales — hacia quienes tienen menos. Este es un tema legítimamente debatido en la teoría económica, y conviene conocer los principales argumentos de ambos lados:</p>
+
+  <table class="compare">
+    <tr><th>Argumento a favor de impuestos más altos y redistribución</th><th>Argumento en contra</th></tr>
+    <tr>
+      <td>Quienes tienen ingresos más altos pueden aportar una proporción mayor sin poner en riesgo sus necesidades básicas; ese dinero puede financiar salud, educación y programas que reducen la pobreza de forma directa.</td>
+      <td>Cuando se cobran impuestos muy altos sobre la renta, las personas y empresas ahorran e invierten menos. Como el ahorro es lo que financia la creación de nuevas empresas y empleos, un impuesto muy alto podría, indirectamente, reducir la cantidad de empleos disponibles — afectando sobre todo a quienes buscan su primer trabajo.</td>
+    </tr>
+  </table>
+
+  <p>Este segundo argumento se apoya en el concepto de <strong>incidencia mediata</strong>: aunque el impuesto formalmente lo paga "el rico", su efecto puede trasladarse, de forma indirecta, hacia quienes dependen de que se sigan creando empleos. Es un ejemplo de cómo, en economía, quién paga <em>formalmente</em> un impuesto no siempre coincide con quién termina <em>asumiendo su costo real</em>.</p>
+
+  <div class="box note">
+    <div class="box-label">📌 Nota académica</div>
+    <p style="margin:0;">Ninguna de las dos posturas anteriores es "la respuesta correcta" desde el punto de vista académico: son parte de un debate vigente entre distintas escuelas de pensamiento económico. Lo importante, para efectos de esta guía, es que puedas identificar el razonamiento detrás de cada postura y evaluar la evidencia con sentido crítico, en lugar de repetir una opinión sin fundamentarla.</p>
+  </div>
+
+  <div class="box remember">
+    <div class="box-label">⭐ Para recordar</div>
+    <p style="margin:0;">El costo de recaudación y la incidencia (quién paga realmente) son herramientas para analizar cualquier propuesta de impuesto, más allá de si "suena justa" a primera vista.</p>
+  </div>
+
+  <div class="box check">
+    <div class="box-label">✅ Comprueba lo aprendido</div>
+    <ol class="qlist" style="margin-bottom:0;">
+      <li>¿Qué es el costo de recaudación de un impuesto?</li>
+      <li>¿Por qué los impuestos indirectos y proporcionales suelen tener menores tasas de evasión que los directos y progresivos?</li>
+      <li>Explica con tus palabras el argumento en contra de subir mucho los impuestos a la renta, relacionado con el empleo.</li>
+    </ol>
+  </div>
+
+  <h3 class="sub-title">B. Ejercicio práctico</h3>
+  <div class="exercise">
+    <p>Lee la situación y responde.</p>
+    <div class="case-card">
+      <span class="case-tag">Caso breve</span>
+      <p style="margin:0;">Para cobrar Q1.00 de ISR, el gobierno de un país gasta Q0.45 en fiscalización, auditorías y personal. Para cobrar Q1.00 de un impuesto al consumo similar al IVA, el gobierno gasta solo Q0.05.</p>
+    </div>
+    <ol class="qlist">
+      <li>¿Cuál de los dos impuestos tiene mayor costo de recaudación?</li>
+      <li>Si el gobierno buscara aumentar sus ingresos de la forma más eficiente posible (gastando lo menos posible en recaudar), ¿cuál de los dos impuestos convendría fortalecer? ¿Por qué esto no siempre es la única consideración que se debe tener?</li>
+    </ol>
+    <details class="reveal">
+      <summary>Verificar respuestas</summary>
+      <div class="reveal-body">
+        1. El ISR tiene un costo de recaudación mucho mayor (Q0.45 por cada quetzal, frente a Q0.05 del impuesto al consumo).<br><br>
+        2. Desde el punto de vista de la eficiencia recaudatoria, convendría fortalecer el impuesto al consumo. Sin embargo, la eficiencia no es la única consideración: también hay que evaluar quién termina pagando cada impuesto (incidencia), si su efecto es proporcional o progresivo, y qué tan justo se percibe socialmente — por eso los países suelen combinar varios tipos de impuestos en lugar de depender de uno solo.
+      </div>
+    </details>
+  </div>
+
+  <div class="box critical">
+    <div class="box-label">🤔 Pregunta de reflexión crítica</div>
+    <p style="margin:0;">¿Consideras que cobrar impuestos más altos a quienes más ganan mejora o empeora, en el mediano plazo, las condiciones de las personas con menos ingresos? Argumenta tu respuesta utilizando al menos un argumento de cada una de las dos posturas presentadas en esta sección.</p>
+  </div>
+
+  <div class="tab-nav-footer">
+    <button class="nav-btn ghost" onclick="goTab('t3')">← Tema 3</button>
+    <button class="nav-btn" onclick="goTab('t5')">Evaluación formativa →</button>
+  </div>
+</section>
+
+<section id="t5" class="tab-panel">
+  <span class="kicker">Cierre de la unidad</span>
+  <h2 class="section-title">Evaluación formativa</h2>
+  <p class="lede">Esta evaluación no busca "ponerte una nota", sino ayudarte a verificar qué tanto dominas los conceptos antes de una evaluación mayor. Responde primero, y solo después abre cada pestaña de verificación para comparar tu respuesta.</p>
+
+  <h3 class="sub-title">Parte A · Refuerzo de conceptos</h3>
+
+  <div class="exercise">
+    <div class="case-card">
+      <strong>1.</strong> Verdadero o falso: el IVA es un ejemplo de impuesto directo.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body"><span class="correct">Falso.</span> El IVA es un impuesto <strong>indirecto</strong>: grava el consumo (una actividad), no el ingreso de las personas.</div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>2.</strong> Selección múltiple: ¿cuál de las siguientes es un ejemplo de función propia del gobierno?
+      <div class="mc-opts">
+        <span>a) Construir y administrar un centro comercial</span>
+        <span>b) Administrar los tribunales de justicia</span>
+        <span>c) Operar una cadena de restaurantes</span>
+        <span>d) Vender pólizas de seguros privados</span>
+      </div>
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body">Respuesta correcta: <span class="correct">b) Administrar los tribunales de justicia.</span> Esta función no puede ser ejercida legítimamente por un particular.</div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>3.</strong> Completa: el impuesto que se cobra con una tasa que aumenta conforme el ingreso de la persona es más alto se llama impuesto _______________.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body">Respuesta: <span class="correct">progresivo.</span></div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>4.</strong> Verdadero o falso: la incidencia inmediata de un impuesto ocurre cuando el pago recae directamente sobre quien compra, en el momento de la compra.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body"><span class="correct">Verdadero.</span> Es el caso típico del IVA.</div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>5.</strong> Selección múltiple: el Impuesto Sobre la Renta (ISR) en Guatemala es un ejemplo de impuesto:
+      <div class="mc-opts">
+        <span>a) Indirecto y proporcional</span>
+        <span>b) Directo y progresivo</span>
+        <span>c) Indirecto y progresivo</span>
+        <span>d) Directo y proporcional</span>
+      </div>
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body">Respuesta correcta: <span class="correct">b) Directo y progresivo.</span> Grava el ingreso (directo) con una tasa que aumenta según cuánto se gana (progresivo).</div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>6.</strong> Completa: la oficina o entidad encargada de recaudar los impuestos, o —en sentido amplio— sinónimo de gobierno, se llama _______________.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body">Respuesta: <span class="correct">fisco.</span></div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>7.</strong> Verdadero o falso: un impuesto con un costo de recaudación alto significa que el gobierno gasta mucho dinero para poder cobrarlo.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body"><span class="correct">Verdadero.</span></div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>8.</strong> Selección múltiple: según el criterio visto en esta guía, ¿cuál de las siguientes se considera una función <em>subsidiaria</em> (no principal) del gobierno?
+      <div class="mc-opts">
+        <span>a) Defensa nacional</span>
+        <span>b) Administración de justicia</span>
+        <span>c) Gestión de hospitales públicos para quienes no pueden pagar salud privada</span>
+        <span>d) Seguridad ciudadana</span>
+      </div>
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body">Respuesta correcta: <span class="correct">c)</span> — es una función que un particular también podría ejercer; el gobierno la asume de forma secundaria.</div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>9.</strong> Completa: antes de gastar en lo superfluo, un gobierno —igual que una familia— debería cubrir primero el gasto _______________.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body">Respuesta: <span class="correct">prioritario.</span></div></details>
+    </div>
+
+    <div class="case-card">
+      <strong>10.</strong> Verdadero o falso: todos los economistas están de acuerdo en que los impuestos progresivos son injustos.
+      <details class="reveal"><summary>Verificar respuesta</summary><div class="reveal-body"><span class="correct">Falso.</span> Es un tema debatido: existen posturas a favor y en contra dentro de la teoría económica, como viste en el Tema 4.</div></details>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Parte B · Casos de aplicación</h3>
+
+  <div class="case-card">
+    <span class="case-tag">Caso 1</span>
+    <p><strong>El municipio de San Rafael</strong> tiene un presupuesto limitado de Q500,000 para este año y debe decidir entre estos proyectos: (1) construir un nuevo módulo policial, (2) patrocinar un festival gastronómico organizado por una asociación de restaurantes privados, (3) ampliar la red de agua potable de un sector sin acceso, y (4) construir una cancha deportiva privada dentro de un club social.</p>
+    <ol class="qlist">
+      <li>Clasifica cada proyecto como función propia, subsidiaria, o no propia del gobierno.</li>
+      <li>Si tuvieras que priorizar el presupuesto, ¿en qué orden asignarías los recursos? Justifica.</li>
+    </ol>
+    <details class="reveal">
+      <summary>Verificar respuesta modelo</summary>
+      <div class="reveal-body">
+        <strong>Clasificación:</strong><br>
+        1. Módulo policial → función propia (seguridad ciudadana).<br>
+        2. Festival gastronómico privado → no propia (puede ser organizado y financiado por los mismos restaurantes).<br>
+        3. Red de agua potable → función propia / bien público esencial.<br>
+        4. Cancha deportiva de un club social → no propia (beneficia a un grupo privado, no a la población en general).<br><br>
+        <strong>Prioridad sugerida:</strong> agua potable y módulo policial primero (funciones propias y necesidades básicas), dejando fuera del presupuesto municipal el festival y la cancha privada, que podrían ser financiados por sus propios beneficiarios. Se acepta cualquier orden entre los dos primeros proyectos, siempre que la justificación use correctamente los criterios de función propia y prioridad de gasto.
+      </div>
+    </details>
+  </div>
+
+  <div class="case-card">
+    <span class="case-tag">Caso 2</span>
+    <p><strong>Una reforma fiscal</strong> propone subir considerablemente la tasa del ISR (impuesto progresivo) para las personas con los ingresos más altos del país, con el objetivo de financiar más programas sociales para las familias de menores ingresos.</p>
+    <ol class="qlist">
+      <li>Usando el concepto de <em>incidencia mediata</em>, explica un posible efecto no deseado de esta reforma.</li>
+      <li>Ahora explica el argumento a favor de esta misma reforma.</li>
+      <li>En tu opinión, ¿qué información adicional necesitarías conocer antes de apoyar o rechazar esta reforma?</li>
+    </ol>
+    <details class="reveal">
+      <summary>Verificar respuesta modelo</summary>
+      <div class="reveal-body">
+        1. Si se sube mucho el ISR a los ingresos más altos, esas personas y empresas podrían ahorrar e invertir menos, reduciendo la capitalización del país; con el tiempo, esto podría traducirse en menos creación de empresas y empleos — un efecto indirecto que terminaría afectando también a personas de menores ingresos que buscan trabajo.<br><br>
+        2. A favor: el dinero adicional recaudado podría financiar directamente programas de salud, educación o alimentación para las familias de menores ingresos, mejorando sus condiciones de vida de forma inmediata.<br><br>
+        3. Respuesta abierta — se espera que el estudiante mencione algo como: el tamaño real del aumento de la tasa, cómo se usaría específicamente el dinero recaudado, evidencia de reformas similares en otros países, o el nivel actual de evasión fiscal en el país.
+      </div>
+    </details>
+  </div>
+
+  <div class="box remember" style="margin-top:30px;">
+    <div class="box-label">🎓 Antes de terminar</div>
+    <p style="margin:0;">Revisa tus respuestas de todas las secciones "Comprueba lo aprendido" y las preguntas de reflexión crítica de cada tema. Si tienes dudas en alguno de los conceptos de esta evaluación, vuelve al tema correspondiente antes de tu próxima clase.</p>
+  </div>
+
+  <div class="tab-nav-footer">
+    <button class="nav-btn ghost" onclick="goTab('t4')">← Tema 4</button>
+    <button class="nav-btn" onclick="goTab('t0')">Volver al inicio ↑</button>
+  </div>
+</section>
+
+
+</div>
+
+<script>
+function showTab(id, btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>{ if(b.dataset.tab===id) b.classList.add('active'); });
+  document.getElementById('content').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function goTab(id){
+  const btn = document.querySelector('.tab-btn[data-tab="'+id+'"]');
+  showTab(id, btn);
+}
+document.querySelectorAll('.tab-btn').forEach(b=>{
+  b.addEventListener('click', ()=>showTab(b.dataset.tab, b));
+});
+</script>
+
+</body>
+</html>
